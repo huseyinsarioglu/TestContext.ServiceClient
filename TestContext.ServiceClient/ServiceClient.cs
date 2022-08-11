@@ -8,15 +8,15 @@ public class ServiceClient
     private readonly HttpClient _httpClient;
     private Task<string>? _token;
 
-    public ServiceClient(string apiBaseUrl, Task<string>? token = null) : this(new HttpClient())
+    public ServiceClient(string apiBaseUrl, Task<string>? token = null) : this(new HttpClient(), token)
     {
-        _token = token;
         _httpClient.BaseAddress = new Uri(apiBaseUrl);
     }
 
-    public ServiceClient(HttpClient httpClient)
+    public ServiceClient(HttpClient httpClient, Task<string>? token = null)
     {
         _httpClient = httpClient;
+        _token = token;
         _jsonSerializerSettingsService = new JsonSerializerSettingsService();
     }
 
