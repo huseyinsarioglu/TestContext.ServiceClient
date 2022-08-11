@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 
 namespace TestContext.ServiceClient.UnitTest
 {
-    public class UnsecureTests : IClassFixture<WebApplicationFactory<Program>>, IDisposable
+    public class TokenlessTests : IClassFixture<WebApplicationFactory<Program>>, IDisposable
     {
         private readonly ServiceClient _serviceClient;
         private readonly WebApplicationFactory<Program> _apiApplication;
@@ -15,7 +15,7 @@ namespace TestContext.ServiceClient.UnitTest
         private readonly HttpClient _httpApiClient;
         private readonly CancellationTokenSource cancellationTokenSource;
 
-        public UnsecureTests(WebApplicationFactory<Program> apiApplication, ITestOutputHelper output)
+        public TokenlessTests(WebApplicationFactory<Program> apiApplication, ITestOutputHelper output)
         {
             _apiApplication = apiApplication;
             _output = output;
