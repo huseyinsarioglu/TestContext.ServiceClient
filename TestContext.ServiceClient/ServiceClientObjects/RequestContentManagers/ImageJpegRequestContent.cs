@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace TestContext.ServiceClient.ServiceClientObjects.RequestContentManagers;
+﻿namespace TestContext.ServiceClient.ServiceClientObjects.RequestContentManagers;
 
 public class ImageJpegRequestContent : RequestContentBase<FileStream?>, IDisposable
 {

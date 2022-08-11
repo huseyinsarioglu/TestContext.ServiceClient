@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using TestContext.ServiceClient.APISandbox.Model;
-using TestContext.ServiceClient.ServiceClientObjects;
 using TestContext.ServiceClient.ServiceClientObjects.RequestContentManagers;
 using FluentAssertions;
 using TestContext.ServiceClient.ServiceClientObjects.RequestContentManagers.Base;
-using System.Data.Common;
 using Xunit.Abstractions;
 
 namespace TestContext.ServiceClient.UnitTest
