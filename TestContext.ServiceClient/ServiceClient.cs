@@ -8,20 +8,16 @@ public class ServiceClient
     private readonly HttpClient _httpClient;
     private Task<string>? _token;
 
-    public ServiceClient() : this(new HttpClient())
+    public ServiceClient(string apiBaseUrl, Task<string>? token = null) : this(new HttpClient())
     {
+        _token = token;
+        _httpClient.BaseAddress = new Uri(apiBaseUrl);
     }
 
     public ServiceClient(HttpClient httpClient)
     {
         _httpClient = httpClient;
         _jsonSerializerSettingsService = new JsonSerializerSettingsService();
-    }
-
-    public void Init(string apiBaseUrl, Task<string>? token = null)
-    {
-        _token = token;
-        _httpClient.BaseAddress = new Uri(apiBaseUrl);
     }
 
     public async Task<ServiceClientResult<TResponse>> CallApiAsync<TResponse>(IRequestContent model, CancellationToken cancellationToken = default)
